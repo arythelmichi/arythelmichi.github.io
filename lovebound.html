@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Love Bound</title>
+  <title>Love Bound Archive</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -10,24 +10,26 @@
 
 <body class="villa-bg">
 
-<!-- LOGO TITLE -->
+<!-- TITLE -->
 <div class="title-logo">
-  <img src="images/loveboundlogo.png" alt="Love Bound">
+  <img src="images/lovebound-title.png" alt="Love Bound">
 </div>
 
+<!-- SEARCH -->
 <div class="controls">
   <input id="searchInput" type="text" placeholder="Search characters..." onkeyup="filterCards()">
 </div>
 
-<div class="grid" id="cardGrid">
+<!-- GRID -->
+<div class="grid">
 
   <a class="card" href="cast/og/eunji.html"
-     data-name="eunji choi engineer aerospace flirt charm og">
+     data-name="eujin eunji choi engineer aerospace charm og">
 
     <img src="images/eunji.jpg">
 
     <div class="info">
-      <h3>Eunji</h3>
+      <h3 class="hidden-name">Eujin</h3>
       <p>Aerospace Engineer</p>
     </div>
 
@@ -44,11 +46,7 @@ function filterCards() {
   cards.forEach(card => {
     const text = card.getAttribute("data-name");
 
-    if (text.includes(filter)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
+    card.style.display = text.includes(filter) ? "block" : "none";
   });
 }
 </script>
