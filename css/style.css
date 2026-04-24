@@ -1,5 +1,17 @@
 /* =========================
-   FONTS + BASE
+   FONTS
+========================= */
+
+/* Cuturila (LOCAL FONT - make sure file exists) */
+@font-face {
+  font-family: "Cuturila";
+  src: url("../fonts/cuturilaregular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* =========================
+   BASE
 ========================= */
 body {
   margin: 0;
@@ -9,10 +21,10 @@ body {
 }
 
 /* =========================
-   TITLE (STATIC METALLIC GOLD)
+   TITLE (CUTURILA + GOLD)
 ========================= */
 h1 {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Cuturila", "Playfair Display", serif;
   font-size: 52px;
   letter-spacing: 3px;
   text-align: center;
@@ -86,7 +98,9 @@ h1 {
   object-fit: cover;
 }
 
-/* CARD TEXT */
+/* =========================
+   CARD TEXT
+========================= */
 .info {
   position: absolute;
   bottom: 15px;
@@ -106,7 +120,9 @@ h1 {
   color: #ddd;
 }
 
-/* FLOATING HOVER INFO */
+/* =========================
+   HOVER INFO BOX
+========================= */
 .hover-info {
   position: fixed;
   pointer-events: none;
@@ -120,7 +136,9 @@ h1 {
   transition: 0.2s;
 }
 
-/* CARD LINES */
+/* =========================
+   CARD LINES DECORATION
+========================= */
 .card::after {
   content: "";
   position: absolute;
@@ -137,7 +155,7 @@ h1 {
 }
 
 /* =========================
-   PROFILE CARD
+   PROFILE PAGE
 ========================= */
 .profile-card {
   width: 360px;
@@ -162,7 +180,7 @@ h1 {
   text-align: left;
 }
 
-/* TAG */
+/* TAGS */
 .tag {
   display: inline-block;
   background: #ff4d6d;
