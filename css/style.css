@@ -3,7 +3,7 @@
 ========================= */
 @font-face {
   font-family: "Cuturila";
-  src: url("../fonts/cuturilaregular.ttf") format("truetype");
+  src: url("../fonts/cutrilaregular.ttf") format("truetype");
 }
 
 /* =========================
@@ -33,7 +33,7 @@ body {
 }
 
 /* =========================
-   SEARCH BAR
+   SEARCH
 ========================= */
 .controls {
   display: flex;
@@ -53,10 +53,6 @@ body {
   outline: none;
 }
 
-#searchInput::placeholder {
-  color: #777;
-}
-
 /* =========================
    GRID
 ========================= */
@@ -69,25 +65,31 @@ body {
 }
 
 /* =========================
-   CARDS (ARCHIVE STYLE)
+   SLANTED CARDS (GLOBAL)
 ========================= */
 .card {
   width: 240px;
   height: 320px;
   text-decoration: none;
   color: white;
+  overflow: hidden;
 
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 14px;
 
-  overflow: hidden;
-  transition: 0.2s ease;
+  clip-path: polygon(
+    8% 0%,
+    100% 0%,
+    92% 100%,
+    0% 100%
+  );
+
+  transition: 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(212,175,55,0.4);
+  transform: translateY(-4px) scale(1.03);
+  border-color: rgba(255, 211, 110, 0.5);
 }
 
 .card img {
@@ -96,7 +98,6 @@ body {
   object-fit: cover;
 }
 
-/* CARD TEXT */
 .info {
   padding: 10px;
 }
@@ -114,7 +115,7 @@ body {
 }
 
 /* =========================
-   WIKI / PROFILE LAYOUT
+   PROFILE LAYOUT (ENCLOSED)
 ========================= */
 .profile-layout {
   display: flex;
@@ -156,7 +157,10 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
   margin-bottom: 10px;
-  color: #d4af37;
+
+  background: linear-gradient(90deg, #ff4fa3, #ffd36e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .infobox-row {
@@ -193,11 +197,11 @@ body {
 
 .fill {
   height: 100%;
-  background: #d4af37;
+  background: linear-gradient(90deg, #ff4fa3, #ffd36e);
 }
 
 /* =========================
-   MAIN PROFILE CONTENT
+   PROFILE CONTENT
 ========================= */
 .profile-main {
   flex: 1;
@@ -213,9 +217,11 @@ body {
 /* TAGS */
 .tag {
   display: inline-block;
-  background: rgba(212,175,55,0.15);
-  border: 1px solid rgba(212,175,55,0.3);
-  color: #d4af37;
+
+  background: rgba(255, 79, 163, 0.15);
+  border: 1px solid rgba(255, 211, 110, 0.35);
+
+  color: #ffd36e;
   padding: 4px 10px;
   border-radius: 10px;
   font-size: 11px;
@@ -226,6 +232,11 @@ body {
 .name {
   font-family: 'Playfair Display', serif;
   font-size: 26px;
+
+  background: linear-gradient(90deg, #ff4fa3, #ffd36e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
   margin: 6px 0;
 }
 
@@ -239,8 +250,12 @@ body {
 /* QUOTE */
 .quote {
   font-size: 13px;
-  color: #d4af37;
   font-style: italic;
+
+  background: linear-gradient(90deg, #ff4fa3, #ffd36e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
   margin-bottom: 14px;
 }
 
@@ -255,15 +270,28 @@ body {
 .back {
   display: inline-block;
   margin-top: 14px;
-  color: #d4af37;
+  color: #ffd36e;
   text-decoration: none;
   font-size: 13px;
 }
 
 /* =========================
-   VILLA BACKGROUND
+   VILLA BACKGROUND (ALL PROFILE PAGES)
 ========================= */
-.villa-bg {
-  background: #0b0b0f;
+.profile-bg {
   min-height: 100vh;
+  background: url('../images/villa.jpeg') no-repeat center center/cover;
+  position: relative;
+}
+
+.profile-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,20,0.75);
+}
+
+.profile-bg > * {
+  position: relative;
+  z-index: 1;
 }
