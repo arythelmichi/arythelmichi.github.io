@@ -8,6 +8,25 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
+<script>
+const cards = document.querySelectorAll(".card");
+const info = document.querySelector(".hover-info");
+
+cards.forEach(card => {
+  const hoverBox = card.querySelector(".hover-info");
+
+  card.addEventListener("mousemove", (e) => {
+    hoverBox.style.left = e.clientX + 15 + "px";
+    hoverBox.style.top = e.clientY + 15 + "px";
+    hoverBox.style.opacity = 1;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    hoverBox.style.opacity = 0;
+  });
+});
+</script>
+ 
 <body class="villa-bg">
 
 <h1>💘 Love Bound: LOVE OR MONEY Cast</h1>
