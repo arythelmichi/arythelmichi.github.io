@@ -4,7 +4,6 @@
   <title>Love Bound</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -22,21 +21,8 @@
 
     <h2 class="subheading">LOVE OR MONEY: Original Cast</h2>
 
-    <div class="grid">
-
-      <a class="card" href="cast/og/eunji.html"
-         data-name="eujin eunji choi engineer aerospace charm og">
-
-        <img src="images/eunjinotext.jpg">
-
-        <div class="card-hover">
-          <h3>EUNJI CHOI</h3>
-          <p>Aerospace Engineer</p>
-        </div>
-
-      </a>
-
-    </div>
+    <!-- GRID (AUTO GENERATED) -->
+    <div class="grid" id="cardGrid"></div>
 
   </div>
 
@@ -48,6 +34,53 @@
 </div>
 
 <script>
+/* =========================
+   CHARACTER DATA
+========================= */
+const characters = [
+  {
+    name: "Eunji Choi",
+    file: "cast/og/eunji.html",
+    img: "images/eunjinotext.jpg",
+    role: "Aerospace Engineer",
+    tags: "eunji choi engineer aerospace charm og"
+  },
+  {
+    name: "Isaiah Bailiff",
+    file: "cast/og/isaiah.html",
+    img: "images/isaiahnotext.jpg",
+    role: "Firefighter",
+    tags: "isaiah bailiff firefighter og"
+  }
+
+  // 👉 COPY THIS BLOCK AND ADD YOUR OTHER 24 CHARACTERS
+];
+
+/* =========================
+   GENERATE CARDS
+========================= */
+const grid = document.getElementById("cardGrid");
+
+characters.forEach(char => {
+  const card = document.createElement("a");
+  card.className = "card";
+  card.href = char.file;
+  card.setAttribute("data-name", char.tags);
+
+  card.innerHTML = `
+    <img src="${char.img}">
+    <div class="card-hover">
+      <h3>${char.name.toUpperCase()}</h3>
+      <p>${char.role}</p>
+    </div>
+  `;
+
+  grid.appendChild(card);
+});
+
+/* =========================
+   SEARCH FILTER
+========================= */
 function filterCards() {
   const input = document.getElementById("searchInput");
   const filter = input.value.toLowerCase();
