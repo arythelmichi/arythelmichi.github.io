@@ -130,11 +130,11 @@ body::before {
    GRID
 ========================= */
 .grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 240px));
   gap: 20px;
-  flex-wrap: wrap;
+  justify-content: start;
 }
-
 /* =========================
    CARD
 ========================= */
