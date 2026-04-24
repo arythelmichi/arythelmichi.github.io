@@ -1,10 +1,10 @@
 
 /* =========================
-   FONTS
+   FONT (OPTIONAL CUSTOM)
 ========================= */
 @font-face {
   font-family: "Cuturila";
-  src: url("../fonts/Cuturila-Regular.ttf") format("truetype");
+  src: url("../fonts/cuturilaregular.ttf") format("truetype");
 }
 
 /* =========================
@@ -12,39 +12,64 @@
 ========================= */
 body {
   margin: 0;
-  background: #0b0b0f;
-  color: white;
   font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  background: #0b0b0f;
 }
 
 /* =========================
-   TITLE LOGO
+   VILLA BACKGROUND (GLOBAL)
 ========================= */
-.title-logo {
-  display: flex;
-  justify-content: center;
-  margin: 35px 0 10px;
+.villa-bg {
+  min-height: 100vh;
+  background: url('../images/villa.jpeg') no-repeat center center/cover;
+  position: relative;
 }
 
-.title-logo img {
-  max-width: 450px;
-  width: 85%;
-  height: auto;
-  filter: drop-shadow(0 0 14px rgba(0,0,0,0.65));
+.villa-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,20,0.65);
+}
+
+.villa-bg > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* =========================
-   SEARCH BAR
+   LOVEBOUND LAYOUT (2 COLUMN)
 ========================= */
-.controls {
+.lb-layout {
   display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 40px;
 }
 
+.lb-left {
+  width: 70%;
+}
+
+.lb-right {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lb-logo {
+  width: 180px;
+  opacity: 0.9;
+}
+
+/* =========================
+   SEARCH + SUBHEADING
+========================= */
 #searchInput {
-  width: 280px;
-  padding: 10px 12px;
+  width: 260px;
+  padding: 10px;
 
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.15);
@@ -54,27 +79,35 @@ body {
   outline: none;
 }
 
+.subheading {
+  font-size: 13px;
+  color: #aaa;
+  margin: 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 /* =========================
    GRID
 ========================= */
 .grid {
   display: flex;
-  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  padding: 20px;
 }
 
 /* =========================
-   SLANTED CARD (FIXED)
+   SLANTED CARD (IMAGE ONLY)
 ========================= */
 .card {
   width: 240px;
   height: 320px;
 
+  position: relative;
+  overflow: hidden;
+
   text-decoration: none;
   color: white;
-  overflow: hidden;
 
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
@@ -86,95 +119,68 @@ body {
     0% 100%
   );
 
-  position: relative;
   transition: 0.25s ease;
 }
 
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* hover lift */
 .card:hover {
   transform: translateY(-4px) scale(1.03);
 }
 
-/* IMAGE */
-.card img {
-  width: 100%;
-  height: 75%;
-  object-fit: cover;
-}
+/* =========================
+   HOVER INFO (ONLY ON HOVER)
+========================= */
+.card-hover {
+  position: absolute;
+  inset: 0;
 
-/* TEXT AREA */
-.info {
-  padding: 10px;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
-/* NAME hidden until hover */
-.hidden-name {
+  padding: 14px;
+
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(10px);
+
   transition: 0.25s ease;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65),
+    transparent 60%
+  );
 }
 
-.card:hover .hidden-name {
+.card:hover .card-hover {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* =========================
-   DUAL GLOW (BLUE TOP + PINK BOTTOM)
-========================= */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 140, 255, 0.18),
-    transparent 45%
-  );
-
-  opacity: 0;
-  transition: 0.25s ease;
-  pointer-events: none;
-}
-
-.card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    to top,
-    rgba(255, 70, 160, 0.18),
-    transparent 45%
-  );
-
-  opacity: 0;
-  transition: 0.25s ease;
-  pointer-events: none;
-}
-
-.card:hover::before,
-.card:hover::after {
-  opacity: 1;
-}
-
-/* =========================
-   INFO TEXT
-========================= */
-.info h3 {
+.card-hover h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Playfair Display', serif;
+
+  background: linear-gradient(90deg, #ff4fa3, #ffd36e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.info p {
+.card-hover p {
   margin: 4px 0 0;
   font-size: 12px;
-  color: #aaa;
+  color: #ddd;
 }
 
 /* =========================
-   PROFILE LAYOUT (WIKI STYLE)
+   PROFILE LAYOUT (EUNJI PAGE)
 ========================= */
 .profile-layout {
   display: flex;
@@ -213,9 +219,8 @@ body {
 }
 
 .infobox-title {
-  font-family: 'Playfair Display', serif;
   font-size: 18px;
-  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
 
   background: linear-gradient(90deg, #ff4fa3, #ffd36e);
   -webkit-background-clip: text;
@@ -225,8 +230,10 @@ body {
 .infobox-row {
   display: flex;
   justify-content: space-between;
+
   padding: 6px 0;
   font-size: 13px;
+
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -270,15 +277,15 @@ body {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 14px;
+
   padding: 18px;
 }
 
-/* TAG */
 .tag {
   display: inline-block;
 
-  background: rgba(255, 79, 163, 0.15);
-  border: 1px solid rgba(255, 211, 110, 0.35);
+  background: rgba(255,79,163,0.15);
+  border: 1px solid rgba(255,211,110,0.35);
 
   color: #ffd36e;
   padding: 4px 10px;
@@ -287,10 +294,9 @@ body {
   margin-bottom: 8px;
 }
 
-/* NAME */
 .name {
-  font-family: 'Playfair Display', serif;
   font-size: 26px;
+  font-family: 'Playfair Display', serif;
 
   background: linear-gradient(90deg, #ff4fa3, #ffd36e);
   -webkit-background-clip: text;
@@ -299,14 +305,12 @@ body {
   margin: 6px 0;
 }
 
-/* ROLE */
 .role {
   color: #aaa;
   font-size: 14px;
   margin-bottom: 10px;
 }
 
-/* QUOTE */
 .quote {
   font-size: 13px;
   font-style: italic;
@@ -318,39 +322,17 @@ body {
   margin-bottom: 14px;
 }
 
-/* TEXT */
 .profile-card p {
   font-size: 14px;
   color: #bbb;
   line-height: 1.6;
 }
 
-/* BACK */
 .back {
   display: inline-block;
   margin-top: 14px;
+
   color: #ffd36e;
   text-decoration: none;
   font-size: 13px;
-}
-
-/* =========================
-   VILLA BACKGROUND
-========================= */
-.villa-bg {
-  min-height: 100vh;
-  background: url('../images/villa.jpeg') no-repeat center center/cover;
-  position: relative;
-}
-
-.villa-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(10,10,20,0.75);
-}
-
-.villa-bg > * {
-  position: relative;
-  z-index: 1;
 }
