@@ -1,4 +1,6 @@
-/* FONTS + BASE */
+/* =========================
+   FONTS + BASE
+========================= */
 body {
   margin: 0;
   background: #0b0b0f;
@@ -6,21 +8,48 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
-/* TITLE */
+/* =========================
+   TITLE (METALLIC GOLD)
+========================= */
 h1 {
   font-family: 'Oswald', sans-serif;
   font-size: 52px;
   letter-spacing: 3px;
+  text-align: center;
+  margin-top: 40px;
 
-  background: linear-gradient(90deg, #d4af37, #ffd700, #b8962e);
+  background: linear-gradient(
+    115deg,
+    #2b1d06 0%,
+    #7a5a10 10%,
+    #d4af37 25%,
+    #fff1a8 40%,
+    #ffd700 50%,
+    #c89b2c 65%,
+    #8a6a12 80%,
+    #2b1d06 100%
+  );
+
+  background-size: 250% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  text-align: center;
-  margin-top: 40px;
+  animation: goldShine 4s linear infinite;
+
+  text-shadow:
+    0 0 10px rgba(255, 215, 0, 0.15),
+    0 0 25px rgba(255, 215, 0, 0.1);
 }
 
-/* GRID */
+/* GOLD SHINE ANIMATION */
+@keyframes goldShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 250% 50%; }
+}
+
+/* =========================
+   GRID
+========================= */
 .grid {
   display: flex;
   justify-content: center;
@@ -29,7 +58,9 @@ h1 {
   margin-top: 40px;
 }
 
-/* 🎬 CARD BASE */
+/* =========================
+   CARD
+========================= */
 .card {
   width: 260px;
   height: 340px;
@@ -38,12 +69,10 @@ h1 {
   text-decoration: none;
   color: white;
 
-  /* GLASS EFFECT */
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.15);
 
-  /* SHAPE */
   clip-path: polygon(
     10% 0%,
     100% 0%,
@@ -51,10 +80,8 @@ h1 {
     0% 100%
   );
 
-  /* ANIMATION START STATE */
   opacity: 0;
   transform: translateX(120px) rotate(-6deg);
-
   animation: slideInCard 0.8s ease forwards;
   transition: 0.35s ease;
 }
@@ -64,7 +91,7 @@ h1 {
 .card:nth-child(2) { animation-delay: 0.4s; }
 .card:nth-child(3) { animation-delay: 0.6s; }
 
-/* ANIMATION KEYFRAMES */
+/* SLIDE IN */
 @keyframes slideInCard {
   to {
     opacity: 1;
@@ -72,7 +99,7 @@ h1 {
   }
 }
 
-/* HOVER EFFECT */
+/* HOVER */
 .card:hover {
   transform: scale(1.06) rotate(0deg);
   box-shadow: 0 20px 60px rgba(0,0,0,0.6);
@@ -85,7 +112,7 @@ h1 {
   object-fit: cover;
 }
 
-/* INFO TEXT ON CARD */
+/* CARD TEXT */
 .info {
   position: absolute;
   bottom: 15px;
@@ -105,7 +132,7 @@ h1 {
   color: #ddd;
 }
 
-/* FLOATING HOVER INFO */
+/* FLOATING HOVER BOX */
 .hover-info {
   position: fixed;
   pointer-events: none;
@@ -135,7 +162,9 @@ h1 {
   opacity: 0.7;
 }
 
-/* PROFILE PAGE */
+/* =========================
+   PROFILE CARD
+========================= */
 .profile-card {
   width: 360px;
   background: rgba(20,20,30,0.6);
@@ -223,7 +252,9 @@ h1 {
   font-size: 13px;
 }
 
-/* 🌴 VILLA BACKGROUND */
+/* =========================
+   VILLA BACKGROUND
+========================= */
 .villa-bg {
   background: url('../images/villa.jpeg') no-repeat center center/cover;
   min-height: 100vh;
@@ -247,13 +278,4 @@ h1 {
 .villa-bg > * {
   position: relative;
   z-index: 1;
-}
-
-/* optional shared font helpers */
-.name {
-  font-family: 'Oswald', sans-serif;
-}
-
-.content {
-  font-family: 'Josefin Sans', sans-serif;
 }
