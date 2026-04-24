@@ -1,106 +1,111 @@
 /* FONTS + BASE */
 body {
-  margin:0;
-  background:#0b0b0f;
-  color:white;
-  font-family:'Josefin Sans', sans-serif;
+  margin: 0;
+  background: #0b0b0f;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 /* TITLE */
 h1 {
-  font-family:'Oswald', sans-serif;
-  font-size:52px;
-  letter-spacing:3px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 52px;
+  letter-spacing: 3px;
 
   background: linear-gradient(90deg, #d4af37, #ffd700, #b8962e);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
-  text-align:center;
-  margin-top:40px;
+  text-align: center;
+  margin-top: 40px;
 }
-
-<h1>LOVE BOUND: LOVE OR MONEY</h1>
 
 /* GRID */
 .grid {
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  flex-wrap:wrap;
-  margin-top:40px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 40px;
 }
 
-/* 🎬 SLIDE-IN START STATE */
+/* 🎬 CARD BASE */
 .card {
+  width: 260px;
+  height: 340px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+
+  /* GLASS EFFECT */
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+
+  /* SHAPE */
+  clip-path: polygon(
+    10% 0%,
+    100% 0%,
+    90% 100%,
+    0% 100%
+  );
+
+  /* ANIMATION START STATE */
   opacity: 0;
   transform: translateX(120px) rotate(-6deg);
+
+  animation: slideInCard 0.8s ease forwards;
+  transition: 0.35s ease;
 }
 
-@keyframes slideInCard {
-  0% {
-    opacity: 0;
-    transform: translateX(120px) rotate(-6deg);
-  }
+/* STAGGER ANIMATION */
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
 
-  100% {
+/* ANIMATION KEYFRAMES */
+@keyframes slideInCard {
+  to {
     opacity: 1;
     transform: translateX(0) rotate(-6deg);
   }
 }
 
-.card {
-  width: 260px;
-  height: 340px;
-  position: relative;
-  text-decoration: none;
-  color: white;
-  overflow: hidden;
-
-  /* ✨ GLASS */
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.15);
-
-  /* 🔥 SHAPE (slanted sides, straight top/bottom) */
-  clip-path: polygon(
-    10% 0%,   /* top-left pushed in */
-    100% 0%,  /* top-right */
-    90% 100%, /* bottom-right pushed in */
-    0% 100%   /* bottom-left */
-  );
-
-  transition: 0.35s ease;
-}
-
-.card:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-.card:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.card:nth-child(3) {
-  animation-delay: 0.6s;
-}
-
-  /* 🔥 YOUR SHAPE */
-  clip-path: polygon(
-    0% 0%,    /* top left */
-    100% 0%,  /* top right */
-    85% 100%, /* bottom right (slanted inward) */
-    0% 100%   /* bottom left */
-  );
-
-  transition: 0.4s ease;
-}
-
+/* HOVER EFFECT */
 .card:hover {
-  transform: scale(1.06);
+  transform: scale(1.06) rotate(0deg);
   box-shadow: 0 20px 60px rgba(0,0,0,0.6);
 }
 
+/* IMAGE */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* INFO TEXT ON CARD */
+.info {
+  position: absolute;
+  bottom: 15px;
+  left: 18px;
+  z-index: 2;
+}
+
+.info h3 {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  font-size: 20px;
+}
+
+.info p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #ddd;
+}
+
+/* FLOATING HOVER INFO */
 .hover-info {
   position: fixed;
   pointer-events: none;
@@ -114,6 +119,7 @@ h1 {
   transition: 0.2s;
 }
 
+/* CARD OVERLAY LINES */
 .card::after {
   content: "";
   position: absolute;
@@ -129,112 +135,95 @@ h1 {
   opacity: 0.7;
 }
 
-.card img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* CARD TEXT */
-.info {
-  position: absolute;
-  bottom: 15px;
-  left: 18px;
-  z-index: 2;
-}
-
-.info h3 {
-  font-family: 'Playfair Display', serif;
-  margin:0;
-  font-size:20px;
-}
-
-.info p {
-  margin:2px 0 0;
-  font-size:12px;
-  color:#ddd;
-}
-
 /* PROFILE PAGE */
 .profile-card {
-  width:360px;
+  width: 360px;
   background: rgba(20,20,30,0.6);
-  border-radius:22px;
-  overflow:hidden;
+  border-radius: 22px;
+  overflow: hidden;
+
   backdrop-filter: blur(14px);
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 20px 80px rgba(0,0,0,0.7);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow: 0 20px 80px rgba(0,0,0,0.7);
 }
 
 .profile-img {
-  width:100%;
-  height:320px;
-  object-fit:cover;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
 }
 
 .content {
-  padding:18px;
-  text-align:left;
+  padding: 18px;
+  text-align: left;
 }
 
+/* TAGS */
 .tag {
-  display:inline-block;
-  background:#ff4d6d;
-  padding:4px 10px;
-  border-radius:12px;
-  font-size:11px;
-  margin-bottom:10px;
+  display: inline-block;
+  background: #ff4d6d;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  margin-bottom: 10px;
 }
 
+/* NAME */
 .name {
-  font-family:'Playfair Display', serif;
-  font-size:28px;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+
   background: linear-gradient(90deg,#ff4d6d,#ff9ecb);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+/* ROLE */
 .role {
-  color:#aaa;
-  font-size:14px;
-  margin-bottom:10px;
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
+/* QUOTE */
 .quote {
-  font-size:13px;
-  color:#ff9ecb;
-  font-style:italic;
-  margin-bottom:10px;
+  font-size: 13px;
+  color: #ff9ecb;
+  font-style: italic;
+  margin-bottom: 10px;
 }
 
+/* STATS */
 .stat {
-  margin:12px 0;
-  font-size:13px;
+  margin: 12px 0;
+  font-size: 13px;
 }
 
 .bar {
-  height:8px;
-  background:#2a2a2f;
-  border-radius:20px;
-  overflow:hidden;
-  margin-top:5px;
+  height: 8px;
+  background: #2a2a2f;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 5px;
 }
 
 .fill {
-  height:100%;
+  height: 100%;
   background: linear-gradient(90deg,#ff4d6d,#ff9ecb);
-  box-shadow:0 0 10px rgba(255,77,109,0.6);
+  box-shadow: 0 0 10px rgba(255,77,109,0.6);
 }
 
+/* BACK BUTTON */
 .back {
-  display:inline-block;
-  margin-top:15px;
-  color:#ff4d6d;
-  text-decoration:none;
-  font-size:13px;
+  display: inline-block;
+  margin-top: 15px;
+  color: #ff4d6d;
+  text-decoration: none;
+  font-size: 13px;
 }
 
-/* 🌴 BACKGROUND IMAGE */
+/* 🌴 VILLA BACKGROUND */
 .villa-bg {
   background: url('../images/villa.jpeg') no-repeat center center/cover;
   min-height: 100vh;
@@ -258,4 +247,13 @@ h1 {
 .villa-bg > * {
   position: relative;
   z-index: 1;
+}
+
+/* optional shared font helpers */
+.name {
+  font-family: 'Oswald', sans-serif;
+}
+
+.content {
+  font-family: 'Josefin Sans', sans-serif;
 }
