@@ -15,17 +15,17 @@
 }
 
 /* =========================
-   BASE (FIXED LEAK ISSUE)
+   BASE (CLEAN + SAFE)
 ========================= */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: #0b0b0f; /* 🔥 solid base to kill white leaks */
+  background: #0b0b0f;
   overflow-x: hidden;
 }
 
-/* 🔥 extra safety layer for weird browser gaps */
+/* extra fallback safety */
 html {
   background: #0b0b0f;
 }
@@ -33,44 +33,44 @@ html {
 body {
   font-family: 'Josefin Sans', sans-serif;
   color: white;
-  background: #0b0b0f;
 
   min-height: 100vh;
-  min-height: 100dvh; /* 🔥 modern viewport fix */
+  min-height: 100dvh;
 
+  background: #0b0b0f;
   position: relative;
-}
-
-/* 🔥 GLOBAL BLUR SAFETY OVERLAY (fixes white fog completely) */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(10,10,20,0.65);
-  backdrop-filter: blur(6px);
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* ensures everything stays above overlay */
-.villa-bg,
-.lb-layout,
-.profile-layout {
-  position: relative;
-  z-index: 1;
 }
 
 /* =========================
-   VILLA BACKGROUND
+   PROPER BACKGROUND BLUR LAYER
+   (THIS FIXES WHITE LEAK + AVOIDS BLURRING CONTENT)
 ========================= */
+
 .villa-bg {
   min-height: 100vh;
   min-height: 100dvh;
-  background: url('../images/villa.jpeg') no-repeat center center/cover;
+
   position: relative;
+  background: url('../images/villa.jpeg') no-repeat center center/cover;
 }
 
-/* (removed old ::before overlay to prevent blur edge leakage) */
+/* 🔥 dark + blur overlay ONLY on background */
+.villa-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(10,10,20,0.65);
+  backdrop-filter: blur(6px);
+
+  z-index: 0;
+}
+
+/* keep all content above overlay */
+.villa-bg > * {
+  position: relative;
+  z-index: 1;
+}
 
 /* =========================
    LOVEBOUND LAYOUT
