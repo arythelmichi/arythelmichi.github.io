@@ -9,7 +9,7 @@ body {
 }
 
 /* =========================
-   TITLE (METALLIC GOLD)
+   TITLE (STATIC METALLIC GOLD)
 ========================= */
 h1 {
   font-family: 'Oswald', sans-serif;
@@ -21,30 +21,20 @@ h1 {
   background: linear-gradient(
     115deg,
     #2b1d06 0%,
-    #7a5a10 10%,
-    #d4af37 25%,
-    #fff1a8 40%,
-    #ffd700 50%,
-    #c89b2c 65%,
-    #8a6a12 80%,
-    #2b1d06 100%
+    #7a5a10 12%,
+    #d4af37 28%,
+    #fff3b0 45%,
+    #ffd700 55%,
+    #c89b2c 72%,
+    #3b2a0a 100%
   );
 
-  background-size: 250% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  animation: goldShine 4s linear infinite;
-
   text-shadow:
-    0 0 10px rgba(255, 215, 0, 0.15),
-    0 0 25px rgba(255, 215, 0, 0.1);
-}
-
-/* GOLD SHINE ANIMATION */
-@keyframes goldShine {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 250% 50%; }
+    0 1px 0 rgba(255, 215, 0, 0.08),
+    0 0 18px rgba(0, 0, 0, 0.6);
 }
 
 /* =========================
@@ -80,28 +70,12 @@ h1 {
     0% 100%
   );
 
-  opacity: 0;
-  transform: translateX(120px) rotate(-6deg);
-  animation: slideInCard 0.8s ease forwards;
   transition: 0.35s ease;
-}
-
-/* STAGGER ANIMATION */
-.card:nth-child(1) { animation-delay: 0.2s; }
-.card:nth-child(2) { animation-delay: 0.4s; }
-.card:nth-child(3) { animation-delay: 0.6s; }
-
-/* SLIDE IN */
-@keyframes slideInCard {
-  to {
-    opacity: 1;
-    transform: translateX(0) rotate(-6deg);
-  }
 }
 
 /* HOVER */
 .card:hover {
-  transform: scale(1.06) rotate(0deg);
+  transform: scale(1.06);
   box-shadow: 0 20px 60px rgba(0,0,0,0.6);
 }
 
@@ -132,7 +106,7 @@ h1 {
   color: #ddd;
 }
 
-/* FLOATING HOVER BOX */
+/* FLOATING HOVER INFO */
 .hover-info {
   position: fixed;
   pointer-events: none;
@@ -146,7 +120,7 @@ h1 {
   transition: 0.2s;
 }
 
-/* CARD OVERLAY LINES */
+/* CARD LINES */
 .card::after {
   content: "";
   position: absolute;
@@ -188,7 +162,7 @@ h1 {
   text-align: left;
 }
 
-/* TAGS */
+/* TAG */
 .tag {
   display: inline-block;
   background: #ff4d6d;
