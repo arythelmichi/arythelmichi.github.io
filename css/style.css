@@ -22,10 +22,16 @@ html, body {
   height: 100%;
 }
 
+/* 🔥 FIX: prevents white showing through blur */
+html {
+  background: #0b0b0f;
+}
+
 body {
   font-family: 'Josefin Sans', sans-serif;
   color: white;
   background: #0b0b0f;
+  overflow-x: hidden; /* 🔥 prevents tiny edge gaps */
 }
 
 /* =========================
@@ -38,14 +44,11 @@ body {
   z-index: 0;
 }
 
-/* FIXED FULLSCREEN OVERLAY */
+/* 🔥 FIXED FULLSCREEN OVERLAY */
 .villa-bg::before {
   content: "";
-  position: fixed; /* FIX */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  inset: 0; /* 🔥 better than width/height */
 
   background: rgba(10,10,20,0.65);
   backdrop-filter: blur(6px);
