@@ -1,13 +1,9 @@
 /* =========================
    FONTS
 ========================= */
-
-/* Cuturila (LOCAL FONT - make sure file exists) */
 @font-face {
   font-family: "Cuturila";
-  src: url("../fonts/cuturilaregular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+  src: url("../fonts/Cuturila-Regular.ttf") format("truetype");
 }
 
 /* =========================
@@ -16,188 +12,111 @@
 body {
   margin: 0;
   background: #0b0b0f;
-  color: white;
+  color: #fff;
   font-family: 'Josefin Sans', sans-serif;
 }
 
 /* =========================
-   TITLE (CUTURILA + GOLD)
+   TITLE (ARCHIVE STYLE)
 ========================= */
 h1 {
   font-family: "Cuturila", "Playfair Display", serif;
-  font-size: 52px;
-  letter-spacing: 3px;
+  font-size: 46px;
   text-align: center;
-  margin-top: 40px;
-
-  background: linear-gradient(
-    115deg,
-    #2b1d06 0%,
-    #7a5a10 12%,
-    #d4af37 28%,
-    #fff3b0 45%,
-    #ffd700 55%,
-    #c89b2c 72%,
-    #3b2a0a 100%
-  );
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow:
-    0 1px 0 rgba(255, 215, 0, 0.08),
-    0 0 18px rgba(0, 0, 0, 0.6);
+  margin: 40px 0;
+  color: #d4af37;
 }
 
 /* =========================
-   GRID
+   MAIN LAYOUT WRAPPER (THE IMPORTANT FIX)
 ========================= */
-.grid {
+.profile-layout {
   display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
+  gap: 20px;
 
-/* =========================
-   CARD
-========================= */
-.card {
-  width: 260px;
-  height: 340px;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  color: white;
+  max-width: 950px;
+  margin: 60px auto;
 
-  background: rgba(255,255,255,0.06);
+  padding: 20px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.15);
-
-  clip-path: polygon(
-    10% 0%,
-    100% 0%,
-    90% 100%,
-    0% 100%
-  );
-
-  transition: 0.35s ease;
-}
-
-/* HOVER */
-.card:hover {
-  transform: scale(1.06);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-}
-
-/* IMAGE */
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 /* =========================
-   CARD TEXT
+   INFOBOX (LEFT PANEL)
 ========================= */
-.info {
-  position: absolute;
-  bottom: 15px;
-  left: 18px;
-  z-index: 2;
+.infobox {
+  width: 260px;
+  flex-shrink: 0;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+
+  padding: 12px;
 }
 
-.info h3 {
+.infobox-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.infobox-title {
   font-family: 'Playfair Display', serif;
-  margin: 0;
-  font-size: 20px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #d4af37;
 }
 
-.info p {
-  margin: 2px 0 0;
-  font-size: 12px;
-  color: #ddd;
+/* INFO ROWS */
+.infobox-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-/* =========================
-   HOVER INFO BOX
-========================= */
-.hover-info {
-  position: fixed;
-  pointer-events: none;
-
-  background: rgba(0,0,0,0.75);
-  padding: 8px 12px;
-  border-radius: 8px;
-
-  font-size: 12px;
-  opacity: 0;
-  transition: 0.2s;
+.infobox-row span:first-child {
+  color: #aaa;
 }
 
 /* =========================
-   CARD LINES DECORATION
+   MAIN CONTENT (RIGHT PANEL)
 ========================= */
-.card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(white, white) top,
-    linear-gradient(white, white) bottom;
-
-  background-size: 100% 2px, 100% 2px;
-  background-repeat: no-repeat;
-
-  opacity: 0.7;
+.profile-main {
+  flex: 1;
 }
 
-/* =========================
-   PROFILE PAGE
-========================= */
 .profile-card {
-  width: 360px;
-  background: rgba(20,20,30,0.6);
-  border-radius: 22px;
-  overflow: hidden;
-
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.08);
-
-  box-shadow: 0 20px 80px rgba(0,0,0,0.7);
-}
-
-.profile-img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-}
-
-.content {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
   padding: 18px;
-  text-align: left;
 }
 
 /* TAGS */
 .tag {
   display: inline-block;
-  background: #ff4d6d;
+  background: rgba(212,175,55,0.15);
+  border: 1px solid rgba(212,175,55,0.3);
+  color: #d4af37;
   padding: 4px 10px;
-  border-radius: 12px;
+  border-radius: 10px;
   font-size: 11px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 /* NAME */
 .name {
   font-family: 'Playfair Display', serif;
-  font-size: 28px;
-
-  background: linear-gradient(90deg,#ff4d6d,#ff9ecb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 26px;
+  margin: 6px 0;
 }
 
 /* ROLE */
@@ -210,156 +129,23 @@ h1 {
 /* QUOTE */
 .quote {
   font-size: 13px;
-  color: #ff9ecb;
-  font-style: italic;
-  margin-bottom: 10px;
-}
-
-/* STATS */
-.stat {
-  margin: 12px 0;
-  font-size: 13px;
-}
-
-.bar {
-  height: 8px;
-  background: #2a2a2f;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-top: 5px;
-}
-
-.fill {
-  height: 100%;
-  background: linear-gradient(90deg,#ff4d6d,#ff9ecb);
-  box-shadow: 0 0 10px rgba(255,77,109,0.6);
-}
-
-/* BACK BUTTON */
-.back {
-  display: inline-block;
-  margin-top: 15px;
-  color: #ff4d6d;
-  text-decoration: none;
-  font-size: 13px;
-}
-
-/* =========================
-   VILLA BACKGROUND
-========================= */
-.villa-bg {
-  background: url('../images/villa.jpeg') no-repeat center center/cover;
-  min-height: 100vh;
-  position: relative;
-}
-
-.villa-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(10,10,20,0.6),
-    rgba(10,10,20,0.85)
-  );
-
-  backdrop-filter: blur(2px);
-}
-
-.villa-bg > * {
-  position: relative;
-
-   /* =========================
-   WIKI LAYOUT
-========================= */
-.wiki-layout {
-  display: flex;
-  gap: 30px;
-  padding: 40px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* =========================
-   INFOBOX (SIDEBAR)
-========================= */
-.infobox {
-  width: 260px;
-  flex-shrink: 0;
-
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 10px;
-
-  padding: 12px;
-}
-
-.infobox-img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.infobox-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  margin-bottom: 10px;
   color: #d4af37;
+  font-style: italic;
+  margin-bottom: 14px;
 }
 
-/* ROWS */
-.infobox-row {
-  display: flex;
-  justify-content: space-between;
-
-  font-size: 13px;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.infobox-row span:first-child {
-  color: #aaa;
-}
-
-/* =========================
-   ARTICLE CONTENT
-========================= */
-.article {
-  flex: 1;
-}
-
-.article-title {
-  font-family: "Cuturila", "Playfair Display", serif;
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.lead {
-  font-size: 15px;
-  color: #ccc;
-  margin-bottom: 20px;
-}
-
-.article h2 {
-  font-size: 18px;
-  margin-top: 20px;
-  color: #ffffff;
-}
-
-.article p {
+/* TEXT */
+.profile-card p {
   font-size: 14px;
   color: #bbb;
   line-height: 1.6;
 }
 
-/* BACK BUTTON */
+/* BACK */
 .back {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 14px;
   color: #d4af37;
   text-decoration: none;
   font-size: 13px;
-}
-  z-index: 1;
 }
