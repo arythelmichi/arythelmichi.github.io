@@ -1,51 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Love Bound</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
 <body class="villa-bg">
 
-<h1>💘 LOVE BOUND: LOVE OR MONEY CAST</h1>
+<h1>Love Bound Cast</h1>
 
-<div class="grid">
+<!-- SEARCH BAR -->
+<div class="controls">
 
-  <a class="card" href="cast/og/eunji.html">
+  <input 
+    id="searchInput"
+    type="text"
+    placeholder="Search characters..."
+    onkeyup="filterCards()"
+  />
+
+</div>
+
+<div class="grid" id="cardGrid">
+
+  <a class="card" href="cast/og/eunji.html" data-name="eujin eunji choi engineer aerospace flirt charm og">
+
     <img src="images/eunji.jpg">
 
     <div class="info">
-      <h3>Eunji</h3>
-      <p>The Chill Engineer</p>
+      <h3>Eujin</h3>
+      <p>Aerospace Engineer</p>
     </div>
 
-    <div class="hover-info">
-      <h3>Eunji</h3>
-      <p>Chill Engineer • High Charm</p>
-    </div>
   </a>
 
 </div>
 
 <script>
-document.querySelectorAll(".card").forEach(card => {
-  const hoverBox = card.querySelector(".hover-info");
+function filterCards() {
+  const input = document.getElementById("searchInput");
+  const filter = input.value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
 
-  card.addEventListener("mousemove", (e) => {
-    hoverBox.style.left = e.clientX + 15 + "px";
-    hoverBox.style.top = e.clientY + 15 + "px";
-    hoverBox.style.opacity = 1;
-  });
+  cards.forEach(card => {
+    const text = card.getAttribute("data-name");
 
-  card.addEventListener("mouseleave", () => {
-    hoverBox.style.opacity = 0;
+    if (text.includes(filter)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
   });
-});
+}
 </script>
 
 </body>
-</html>
