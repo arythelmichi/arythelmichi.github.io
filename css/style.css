@@ -1,21 +1,18 @@
 /* =========================
    FONTS
 ========================= */
-
-/* Cuturila */
 @font-face {
   font-family: "Cuturila";
   src: url("../fonts/cuturilaregular.ttf") format("truetype");
 }
 
-/* Jenko */
 @font-face {
   font-family: "Jenko";
   src: url("../fonts/jenkoregular.ttf") format("truetype");
 }
 
 /* =========================
-   BASE (CLEAN + SAFE)
+   BASE
 ========================= */
 html, body {
   margin: 0;
@@ -25,40 +22,27 @@ html, body {
   overflow-x: hidden;
 }
 
-html {
-  background: #0b0b0f;
-}
-
 body {
   font-family: 'Josefin Sans', sans-serif;
   color: white;
-
   min-height: 100vh;
   min-height: 100dvh;
-
-  background: #0b0b0f;
   position: relative;
 }
 
 /* =========================
-   FULL PAGE BACKDROP (FIXED PROPERLY)
-   - covers EVERYTHING
-   - no white leaks
-   - no content blur
+   BACKDROP
 ========================= */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-
   background: rgba(10,10,20,0.65);
   backdrop-filter: blur(6px);
-
   z-index: 0;
   pointer-events: none;
 }
 
-/* everything above backdrop */
 .villa-bg,
 .lb-layout,
 .profile-layout {
@@ -67,30 +51,31 @@ body::before {
 }
 
 /* =========================
-   VILLA BACKGROUND
+   BACKGROUND
 ========================= */
 .villa-bg {
   min-height: 100vh;
   min-height: 100dvh;
-
-  background: url('../images/villa.jpeg') no-repeat center center/cover;
-  position: relative;
+  background: url('../images/villa.jpeg') no-repeat center/cover;
 }
 
 /* =========================
-   LOVEBOUND LAYOUT
+   LAYOUT (FIXED)
 ========================= */
 .lb-layout {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  gap: 20px;
   padding: 40px;
 }
 
-.lb-left { width: 70%; }
+/* 🔥 FIXED WIDTH ISSUE */
+.lb-left {
+  flex: 1;
+}
 
 .lb-right {
-  width: 30%;
+  width: auto;
   display: flex;
   justify-content: flex-end;
 }
@@ -106,17 +91,15 @@ body::before {
 #searchInput {
   width: 260px;
   padding: 10px;
-
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 10px;
-
   color: white;
   outline: none;
 }
 
 /* =========================
-   SUBHEADING
+   TEXT
 ========================= */
 .subheading {
   font-size: 13px;
@@ -127,23 +110,23 @@ body::before {
 }
 
 /* =========================
-   GRID
+   GRID (FIXED)
 ========================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  
-   max-width: 1200px;
-   margin: 0 auto;
+  width: 100%;
 }
 
 /* =========================
-   CARD
+   CARD (FIXED)
 ========================= */
 .card {
-  width: 240px;
+  width: 100%;
+  max-width: 260px;
   height: 320px;
+  margin: 0 auto;
 
   position: relative;
   overflow: hidden;
@@ -168,14 +151,12 @@ body::before {
   content: "";
   position: absolute;
   inset: -40%;
-
   background: linear-gradient(
     120deg,
     transparent 40%,
     rgba(255,255,255,0.25),
     transparent 60%
   );
-
   transform: translateX(-120%) rotate(10deg);
   transition: 0.6s ease;
 }
@@ -188,14 +169,11 @@ body::before {
   content: "";
   position: absolute;
   inset: 0;
-
   box-shadow:
     0 -12px 25px rgba(0,180,255,0.25),
     0  12px 25px rgba(255,80,160,0.25);
-
   opacity: 0;
   transition: 0.3s ease;
-  pointer-events: none;
 }
 
 .card:hover::after {
@@ -212,16 +190,12 @@ body::before {
 .card-hover {
   position: absolute;
   inset: 0;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
   padding: 14px;
-
   opacity: 0;
   transform: translateY(10px);
-
   background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
   transition: 0.25s ease;
 }
@@ -235,7 +209,6 @@ body::before {
   margin: 0;
   font-size: 18px;
   font-family: "Jenko";
-
   background: linear-gradient(90deg, #ff4fa3, #ffd36e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -248,15 +221,13 @@ body::before {
 }
 
 /* =========================
-   PROFILE LAYOUT
+   PROFILE
 ========================= */
 .profile-layout {
   display: flex;
   gap: 20px;
-
   max-width: 950px;
   margin: 60px auto;
-
   padding: 20px;
 
   background: rgba(255,255,255,0.03);
@@ -266,197 +237,55 @@ body::before {
   backdrop-filter: blur(10px);
 }
 
-/* =========================
-   INFOBOX
-========================= */
 .infobox {
   width: 260px;
   flex-shrink: 0;
-
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 12px;
-
   padding: 12px;
 }
 
-.infobox-img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.infobox-title {
-  font-size: 18px;
-  font-family: "Jenko", serif;
-
-  background: linear-gradient(90deg, #ff4fa3, #ffd36e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.infobox-row {
-  display: flex;
-  justify-content: space-between;
-
-  padding: 6px 0;
-  font-size: 13px;
-
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.infobox-row span:first-child {
-  color: #aaa;
-}
-
-/* =========================
-   STATS
-========================= */
-.stat-block {
-  margin-top: 12px;
-}
-
-.stat-label {
-  font-size: 12px;
-  color: #aaa;
-  margin-bottom: 4px;
-}
-
-.bar {
-  height: 7px;
-  width: 100%;
-  background: rgba(255,255,255,0.08);
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.fill {
-  height: 100%;
-  width: 0;
-
-  background: linear-gradient(90deg, #ff4fa3, #ffd36e);
-  box-shadow: 0 0 12px rgba(255,79,163,0.3);
-}
-
-/* =========================
-   PROFILE CARD TEXT
-========================= */
 .profile-card {
+  flex: 1;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 14px;
-
   padding: 18px;
 }
 
-.tag {
-  display: inline-block;
-  background: rgba(255,79,163,0.15);
-  border: 1px solid rgba(255,211,110,0.35);
-
-  color: #ffd36e;
-  padding: 4px 10px;
-  border-radius: 10px;
-  font-size: 11px;
-  margin-bottom: 8px;
-}
-
-.name {
-  font-size: 26px;
-  font-family: "Jenko", serif;
-
-  background: linear-gradient(90deg, #ff4fa3, #ffd36e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.profile-card p {
-  font-size: 14px;
-  color: #bbb;
-  line-height: 1.6;
-}
-
-.back {
-  display: inline-block;
-  margin-top: 14px;
-  color: #ffd36e;
-  text-decoration: none;
-  font-size: 13px;
-}
-
 /* =========================
-   📱 MOBILE FIXES (CENTERED + CLEAN)
+   MOBILE
 ========================= */
 @media (max-width: 768px) {
 
-  /* Layout becomes vertical */
   .lb-layout {
     flex-direction: column;
     padding: 20px;
-    gap: 20px;
-  }
-
-  .lb-left,
-  .lb-right {
-    width: 100%;
   }
 
   .lb-right {
     justify-content: center;
   }
 
-  .lb-logo {
-    width: 140px;
-  }
-
-  /* Grid centers nicely */
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    justify-content: center;
   }
 
-  /* Cards */
-  .card {
-    width: 100%;
-    max-width: 220px;
-    height: 300px;
-    margin: 0 auto;
-  }
-
-  /* 🔥 PROFILE LAYOUT FIX */
   .profile-layout {
     flex-direction: column;
-    align-items: center;          /* ✅ centers children */
-    
+    align-items: center;
     margin: 20px auto;
-    width: calc(100% - 20px);     /* ✅ prevents overflow */
-    padding: 15px;
+    width: calc(100% - 20px);
   }
 
-  /* 🔥 INFOBOX FIX */
-  .infobox {
-    width: 100%;
-    max-width: 360px;             /* ✅ keeps it inside glass */
-  }
-
-  /* 🔥 MAIN CARD FIX */
+  .infobox,
   .profile-card {
     width: 100%;
-    max-width: 600px;
-    padding: 14px;
+    max-width: 500px;
   }
 
-  .name {
-    font-size: 22px;
-  }
-
-  /* Search full width */
   #searchInput {
     width: 100%;
-  }
-
-  /* Prevent edge touching */
-  body {
-    padding: 0 10px;
   }
 }
