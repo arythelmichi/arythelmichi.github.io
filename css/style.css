@@ -382,7 +382,7 @@ body::before {
 }
 
 /* =========================
-   📱 MOBILE FIXES
+   📱 MOBILE FIXES (CENTERED + CLEAN)
 ========================= */
 @media (max-width: 768px) {
 
@@ -412,7 +412,7 @@ body::before {
     justify-content: center;
   }
 
-  /* Cards smaller */
+  /* Cards */
   .card {
     width: 100%;
     max-width: 220px;
@@ -420,20 +420,26 @@ body::before {
     margin: 0 auto;
   }
 
-  /* Profile layout STACKS */
+  /* 🔥 PROFILE LAYOUT FIX */
   .profile-layout {
     flex-direction: column;
-    margin: 20px;
+    align-items: center;          /* ✅ centers children */
+    
+    margin: 20px auto;
+    width: calc(100% - 20px);     /* ✅ prevents overflow */
     padding: 15px;
   }
 
-  /* Infobox becomes full width */
+  /* 🔥 INFOBOX FIX */
   .infobox {
     width: 100%;
+    max-width: 360px;             /* ✅ keeps it inside glass */
   }
 
-  /* Text padding tighter */
+  /* 🔥 MAIN CARD FIX */
   .profile-card {
+    width: 100%;
+    max-width: 600px;
     padding: 14px;
   }
 
@@ -444,5 +450,10 @@ body::before {
   /* Search full width */
   #searchInput {
     width: 100%;
+  }
+
+  /* Prevent edge touching */
+  body {
+    padding: 0 10px;
   }
 }
