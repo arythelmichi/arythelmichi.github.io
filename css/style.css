@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "Cuturila";
+    src: url("../fonts/cuturilaregular.ttf") format("truetype");
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #070707;
+    color: white;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* Header */
+
+.archive-header {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.archive-header h1 {
+    font-family: "Cuturila", serif;
+    font-size: 3rem;
+    font-weight: normal;
+    margin: 0;
+    letter-spacing: 3px;
+}
+
+.archive-header p {
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* Album Shelf */
+
+.record-shelf {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.record-folder {
+    text-decoration: none;
+    text-align: center;
+}
+
+.album-container {
+    position: relative;
+    width: 340px;
+}
+
+.album-img {
+    width: 100%;
+    display: block;
+    transition: all 0.4s ease;
+}
+
+.album-hover {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+}
+
+.record-folder:hover .album-front {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.record-folder:hover .album-hover {
+    opacity: 1;
+    transform: scale(0.95);
+}
+
+.record-folder h2 {
+    margin-top: 20px;
+    color: #b76a6a;
+    font-family: "Cuturila", serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+}
