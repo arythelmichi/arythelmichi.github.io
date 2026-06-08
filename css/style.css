@@ -25,20 +25,7 @@ body {
     min-height: 100%;
 }
 
-.track-label {
-    margin-top: 10px;
-
-    font-family: "Monteilga", serif;
-
-    font-size: 1rem;
-
-    letter-spacing: 4px;
-
-    color: #9d2a31;
-
-    opacity: 0.8;
-}
-
+/* THIS WAS THE BUG */
 body {
     min-height: 100vh;
 
@@ -51,7 +38,25 @@ body {
     color: white;
 }
 
-/* Header */
+/* =========================
+TRACK LABEL
+========================= */
+
+.track-label {
+    margin-top: 10px;
+
+    font-family: "Monteilga", serif;
+    font-size: 1rem;
+
+    letter-spacing: 4px;
+
+    color: #9d2a31;
+    opacity: 0.8;
+}
+
+/* =========================
+INDEX HEADER
+========================= */
 
 .archive-header {
     text-align: center;
@@ -62,7 +67,9 @@ body {
     font-family: "Zaslia", serif;
     font-size: 5rem;
     color: #9d2a31;
+
     letter-spacing: 4px;
+
     margin: 0;
 
     text-shadow:
@@ -75,7 +82,9 @@ body {
     margin-top: 10px;
 }
 
-/* Album Shelf */
+/* =========================
+ALBUM SELECTION
+========================= */
 
 .record-shelf {
     display: flex;
@@ -117,11 +126,14 @@ body {
 
 .record-folder h2 {
     margin-top: 20px;
+
     color: #b76a6a;
+
     font-family: "Monteilga", serif;
+    font-weight: normal;
+
     letter-spacing: 8px;
     font-size: 1rem;
-    font-weight: normal;
 }
 
 /* =========================
@@ -136,13 +148,15 @@ BROKEN MELODY PAGE
 
 .album-header h1 {
     font-family: "Cravelo", serif;
+
     font-size: 4rem;
-    color: #9d2a31;
     font-weight: normal;
+
+    color: #9d2a31;
 }
 
 /* =========================
-CHARACTER CARDS
+CHARACTER LIST
 ========================= */
 
 .character-list {
@@ -154,6 +168,10 @@ CHARACTER CARDS
     gap: 25px;
 }
 
+/* =========================
+CHARACTER CARD
+========================= */
+
 .character-card {
     display: flex;
     align-items: center;
@@ -162,9 +180,9 @@ CHARACTER CARDS
 
     padding: 20px;
 
-    background: #1a1a1a;
-    border: 1px solid #555;
+    background: #171717;
 
+    border: 1px solid #555;
     border-radius: 20px;
 
     text-decoration: none;
@@ -178,7 +196,8 @@ CHARACTER CARDS
 
     border-color: #9d2a31;
 
-    box-shadow: 0 0 20px rgba(157,42,49,0.25);
+    box-shadow:
+        0 0 20px rgba(157,42,49,0.25);
 }
 
 .character-image {
@@ -192,6 +211,35 @@ CHARACTER CARDS
     flex-shrink: 0;
 }
 
+.character-content {
+    flex: 1;
+
+    margin-left: 20px;
+
+    padding-right: 70px;
+}
+
+.character-content h2 {
+    margin: 0;
+
+    font-family: "Zaslia", serif;
+
+    font-size: 2.3rem;
+    font-weight: normal;
+
+    color: #e5e5e5;
+
+    letter-spacing: 2px;
+}
+
+.character-divider {
+    height: 2px;
+
+    background: #9d2a31;
+
+    margin: 10px 0 12px;
+}
+
 .character-content p {
     margin: 0;
 
@@ -202,30 +250,9 @@ CHARACTER CARDS
     line-height: 1.5;
 }
 
-.character-content h2 {
-    margin: 0;
-
-    font-family: "Zaslia", serif;
-
-    font-size: 2.3rem;
-
-    font-weight: normal;
-
-    color: #e5e5e5;
-
-    letter-spacing: 2px;
-}
-
-.character-divider {
-    height: 2px;
-    background: #9d2a31;
-    margin: 10px 0 12px;
-}
-
-.character-content p {
-    margin: 0;
-    color: #cfcfcf;
-}
+/* =========================
+PLAY BUTTON
+========================= */
 
 .play-button {
     position: absolute;
