@@ -39,7 +39,7 @@ body {
     opacity: 0.8;
 }
 
-.body {
+body {
     min-height: 100vh;
 
     background-image: url("../images/archive-bg.png");
