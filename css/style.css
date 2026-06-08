@@ -3,6 +3,21 @@
     src: url("../fonts/Zaslia.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "Cravelo";
+    src: url("../fonts/Cravelo DEMO.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Monteilga";
+    src: url("../fonts/Monteilga.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Sicelka";
+    src: url("../fonts/Sicelka.otf") format("opentype");
+}
+
 html,
 body {
     margin: 0;
@@ -89,7 +104,7 @@ body {
 .record-folder h2 {
     margin-top: 20px;
     color: #b76a6a;
-    font-family: "Cuturila", serif;
+    font-family: "Monteilga", serif;
     font-size: 2.5rem;
     font-weight: normal;
 }
