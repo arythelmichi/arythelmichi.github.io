@@ -105,7 +105,112 @@ body {
     margin-top: 20px;
     color: #b76a6a;
     font-family: "Monteilga", serif;
-    letter-spacing: 80px;
+    letter-spacing: 8px;
     font-size: 1rem;
     font-weight: normal;
+}
+
+/* =========================
+BROKEN MELODY PAGE
+========================= */
+
+.album-header {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+.album-header h1 {
+    font-family: "Cravelo", serif;
+    font-size: 4rem;
+    color: #9d2a31;
+    font-weight: normal;
+}
+
+/* =========================
+CHARACTER CARDS
+========================= */
+
+.character-list {
+    width: min(1000px, 90%);
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.character-card {
+    display: flex;
+    align-items: center;
+
+    padding: 20px;
+
+    background: #1a1a1a;
+    border: 1px solid #555;
+
+    border-radius: 20px;
+
+    text-decoration: none;
+    color: white;
+
+    transition: all 0.3s ease;
+}
+
+.character-card:hover {
+    transform: scale(1.03);
+
+    border-color: #9d2a31;
+
+    box-shadow: 0 0 20px rgba(157,42,49,0.25);
+}
+
+.character-image {
+    width: 130px;
+    height: 130px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    flex-shrink: 0;
+}
+
+.character-content {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.character-content h2 {
+    margin: 0;
+
+    font-family: "Zaslia", serif;
+
+    font-size: 2.3rem;
+
+    font-weight: normal;
+
+    color: #e5e5e5;
+
+    letter-spacing: 2px;
+}
+
+.character-divider {
+    height: 2px;
+    background: #9d2a31;
+    margin: 10px 0 12px;
+}
+
+.character-content p {
+    margin: 0;
+    color: #cfcfcf;
+}
+
+.play-button {
+    font-size: 2rem;
+    color: #9d2a31;
+}
+
+.character-card:hover .play-button {
+    transform: scale(1.2);
 }
