@@ -25,7 +25,21 @@ body {
     min-height: 100%;
 }
 
-body {
+.track-label {
+    margin-top: 10px;
+
+    font-family: "Monteilga", serif;
+
+    font-size: 1rem;
+
+    letter-spacing: 4px;
+
+    color: #9d2a31;
+
+    opacity: 0.8;
+}
+
+.body {
     min-height: 100vh;
 
     background-image: url("../images/archive-bg.png");
@@ -144,6 +158,8 @@ CHARACTER CARDS
     display: flex;
     align-items: center;
 
+    position: relative;
+
     padding: 20px;
 
     background: #1a1a1a;
@@ -176,9 +192,14 @@ CHARACTER CARDS
     flex-shrink: 0;
 }
 
-.character-content {
-    flex: 1;
-    margin-left: 20px;
+.character-content p {
+    margin: 0;
+
+    color: #c7c7c7;
+
+    font-style: italic;
+
+    line-height: 1.5;
 }
 
 .character-content h2 {
@@ -207,10 +228,32 @@ CHARACTER CARDS
 }
 
 .play-button {
-    font-size: 2rem;
-    color: #9d2a31;
+    position: absolute;
+
+    bottom: 18px;
+    right: 18px;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #9d2a31;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: black;
+
+    font-size: 1.2rem;
+
+    transition: all 0.3s ease;
 }
 
 .character-card:hover .play-button {
-    transform: scale(1.2);
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 12px rgba(157,42,49,0.5);
 }
