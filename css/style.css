@@ -1,6 +1,6 @@
 @font-face {
-    font-family: "Cuturila";
-    src: url("../fonts/cuturilaregular.ttf") format("truetype");
+    font-family: "Zaslia";
+    src: url("../fonts/Zaslia.otf") format("opentype");
 }
 
 html,
@@ -23,11 +23,15 @@ body {
 }
 
 .archive-header h1 {
-    font-family: "Cuturila", serif;
-    font-size: 3rem;
-    font-weight: normal;
+    font-family: "Zaslia", serif;
+    font-size: 5rem;
+    color: #9d2a31;
+    letter-spacing: 4px;
     margin: 0;
-    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 10px rgba(157,42,49,0.4),
+        0 0 25px rgba(157,42,49,0.2);
 }
 
 .archive-header p {
